@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title> </title>
+  <style>
+    body {
+      margin: auto;
+      overflow: hidden;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 66%;
+    }
+
+    main {
+      display: flex;
+      padding: 1rem;
+
+    }
+
+    canvas {
+      width: 100%;
+    }
+
+    form {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      background-color: beige;
+    }
+  </style>
+</head>
+
+<body>
+  <h1> Versus </h1>
+  <main>
+
+    <form id="red">
+      <div>Time red</div>
+      <input type="number" placeholder="Tamanho da trave" id="traver" value="100">
+      <input type="number" placeholder="Quantidade de bolas" id="qtdr" value="1">
+      <input type="number" placeholder="Velocidade">
+      
+      <input type="button" onclick="traveRed()" value="Definir" >
+    </form>
+
+    <div id="canvas">
+      <canvas style="background-color: black;" width="800px" height="400px"></canvas>
+      <input type="button" value="start" id="buttonStart" onclick="start()">
+    </div>
+
+    <form id="blue">
+      <div>Time blue</div>
+      <input type="number" placeholder="Tamanho da trave" id="traveb" value="100">
+      <input type="number" placeholder="Quantidade de bolas" id="qtdb" value="1">
+      <input type="number" placeholder="Velocidade">
+      <input type="button" onclick="traveBlue()" value="Definir" >
+    </form>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
