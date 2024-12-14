@@ -12,11 +12,20 @@
       justify-content: space-evenly;
       align-items: center;
       width: 66%;
+      height: 100vh;
+      background-image: url("image.png");
+      background-position: center;
+      background-size: cover;
+      
+      
     }
 
     main {
       display: flex;
       padding: 1rem;
+      background-color: beige;
+      box-shadow: 0px 0px 70px rgb(0, 0, 0, 190);
+      border-radius: 15px;
 
     }
 
@@ -54,6 +63,13 @@
       align-items: center;
       justify-content: center;
     }
+    
+
+    .buttonStart{
+      width: 25%;
+      margin: auto;
+      margin-left: 15%;
+    }
   </style>
 </head>
 
@@ -73,8 +89,8 @@
 
     <div id="canvas">
       <canvas style="background-color: black;" width="800px" height="400px"></canvas>
-      <input type="button" value="start" id="buttonStart" onclick="start()">
-      <input type="button" value="reset" id="buttonStart" onclick="reset()">
+      <input type="button" value="start" class="buttonStart" onclick="start()">
+      <input type="button" value="reset" class="buttonStart" onclick="reset()">
     </div>
 
     <form id="blue">

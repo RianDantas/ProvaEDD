@@ -169,7 +169,6 @@ function start(){
   for (let i = 0; i < team_red.balls_count; i++) {
     const size = random(10, 20);
     const velxR = parseInt(document.getElementById("velxR").value,10)
-    const velxB = parseInt(document.getElementById("velxB").value,10)
     const ball_red = new Ball(
       // ball position always drawn at least one ball width
       // away from the edge of the canvas, to avoid drawing errors
@@ -185,12 +184,13 @@ function start(){
   }
   for (let i = 0; i < team_blue.balls_count; i++)  {
     const size = random(10, 20);
+    const velxB = parseInt(document.getElementById("velxB").value,10)
     const ball_blue = new Ball(
       // ball position always drawn at least one ball width
       // away from the edge of the canvas, to avoid drawing errors
       random(0 + size, width - size),
       random(0 + size, height - size),
-      random(1,20),
+      velxB,
       random(-7, 7),
       "blue",
       size
