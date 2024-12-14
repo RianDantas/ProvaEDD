@@ -25,10 +25,34 @@
     }
 
     form {
-      width: 25%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       background-color: beige;
+    }
+
+    .teste{
+      width: 25%;
+      display: flex;
+      background-color: black;
+      
+    }
+
+    #golR{
+      margin: auto;
+      display: flex;
+      width: 80px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+    }
+    #golB{
+      margin: auto;
+      display: flex;
+      width: 80px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
@@ -36,27 +60,30 @@
 <body>
   <h1> Versus </h1>
   <main>
-
     <form id="red">
       <div>Time red</div>
       <input type="number" placeholder="Tamanho da trave" id="traver" value="100">
       <input type="number" placeholder="Quantidade de bolas" id="qtdr" value="1">
-      <input type="number" placeholder="Velocidade">
-      
+      <input type="number" placeholder="Velocidade" id="velxR" value="10">
       <input type="button" onclick="traveRed()" value="Definir" >
+      <div id="golR"></div>
+      
     </form>
+    
 
     <div id="canvas">
       <canvas style="background-color: black;" width="800px" height="400px"></canvas>
       <input type="button" value="start" id="buttonStart" onclick="start()">
+      <input type="button" value="reset" id="buttonStart" onclick="reset()">
     </div>
 
     <form id="blue">
       <div>Time blue</div>
       <input type="number" placeholder="Tamanho da trave" id="traveb" value="100">
       <input type="number" placeholder="Quantidade de bolas" id="qtdb" value="1">
-      <input type="number" placeholder="Velocidade">
+      <input type="number" placeholder="Velocidade" id="velxB" value="10">
       <input type="button" onclick="traveBlue()" value="Definir" >
+      <div id="golB"></div>
     </form>
   </main>
 

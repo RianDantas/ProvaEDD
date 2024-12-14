@@ -16,7 +16,8 @@ const height = (canvas.height = window.innerHeight);
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
+let golB = 0
+let golR = 0
 //Classe Bola, desenha as bolinhas dos times na tela
 class Ball {
   /**
@@ -68,19 +69,40 @@ class Ball {
 
 //Verificando se a bola encostou na trave
   collisionDetect(goal1, goal2) {
+    
     if (
       this.x - this.size <  goal1.x + 1  && 
       (this.y - this.size > goal1.y && this.y < goal1.y + goal1.h) &&
       this.color !== goal1.color
     ){
-      console.log("gol")
+      golB += 1
+      document.getElementById("golB").innerHTML = "Gols: " + golB
+      for(const ball of balls){
+        if(ball.color =="blue"){
+          balls.pop()
+        }
+      }
+      if(golB == 10){
+        alert("Time azul fez 10 Gols!")
+      }
+
+
     }
 
     if (this.x - this.size >  goal2.x && 
       (this.y - this.size > goal2.y && this.y < goal1.y + goal1.h ) &&
       this.color !== goal2.color
     ){
-      console.log("gol")
+      golR += 1
+      document.getElementById("golR").innerHTML = "Gols: " + golR
+      for(const ball of balls){
+        if(ball.color =="red"){
+          balls.shift()
+        }
+      }
+      if(golR == 10){
+        alert("Time Vermelho fez 10 Gols!")
+      }
     }
   }
 }
@@ -146,16 +168,19 @@ function traveRed(){
 function start(){
   for (let i = 0; i < team_red.balls_count; i++) {
     const size = random(10, 20);
+    const velxR = parseInt(document.getElementById("velxR").value,10)
+    const velxB = parseInt(document.getElementById("velxB").value,10)
     const ball_red = new Ball(
       // ball position always drawn at least one ball width
       // away from the edge of the canvas, to avoid drawing errors
       random(0 + size, width - size),
       random(0 + size, height - size),
-      random(1,20),
+      velxR,
       random(-7, 7),
       "red",
       size
     );
+
     balls.push(ball_red);
   }
   for (let i = 0; i < team_blue.balls_count; i++)  {
@@ -172,7 +197,39 @@ function start(){
     );
     balls.push(ball_blue);
   }
-  
+  console.log(balls)
+}
+function reset(){
+  for (let i = 0; i < team_red.balls_count; i++) {
+    const size = random(10, 20);
+    const ball_red = new Ball(
+      // ball position always drawn at least one ball width
+      // away from the edge of the canvas, to avoid drawing errors
+      random(0 + size, width - size),
+      random(0 + size, height - size),
+      random(1,20),
+      random(-7, 7),
+      "red",
+      size
+    );
+
+    balls.push(ball_red);
+  }
+  for (let i = 0; i < team_blue.balls_count; i++)  {
+    const size = random(10, 20);
+    const ball_blue = new Ball(
+      // ball position always drawn at least one ball width
+      // away from the edge of the canvas, to avoid drawing errors
+      random(0 + size, width - size),
+      random(0 + size, height - size),
+      random(1,20),
+      random(-7, 7),
+      "blue",
+      size
+    );
+    balls.push(ball_blue);
+  }
+  console.log(balls)
 }
 
 
